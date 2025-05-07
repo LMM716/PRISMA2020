@@ -252,7 +252,7 @@ ui <- tagList( #nolint
           ),
           downloadButton(
             "PRIMAflowdiagramcsv",
-            "Interactive HTML (csv)"
+            "CSV"
           )
         ),
         mainPanel(
