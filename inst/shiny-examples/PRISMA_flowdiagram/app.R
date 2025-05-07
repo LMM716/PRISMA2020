@@ -249,6 +249,10 @@ ui <- tagList( #nolint
           downloadButton(
             "PRISMAflowdiagramZIP",
             "Interactive HTML (ZIP)"
+          ),
+          downloadButton(
+            "PRIMAflowdiagramcsv",
+            "Interactive HTML (csv)"
           )
         ),
         mainPanel(
@@ -1144,6 +1148,16 @@ server <- function(input, output, session) { #nolint
       )
       PRISMA2020::PRISMA_save(plot(),
                  filename = file, filetype = "zip")
+    }
+  )
+  output$PRISMAflowdiagramcsv <- downloadHandler( #nolint
+    filename = "prisma.csv",
+    content = function(file) {
+      showModal(
+        thank_you_modal
+      )
+      PRISMA2020::PRISMA_save(plot(),
+                              filename = file, filetype = "csv")
     }
   )
 }
